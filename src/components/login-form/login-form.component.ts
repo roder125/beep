@@ -2,7 +2,7 @@ import { NavController } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'login-form',
+  selector: 'app-login-form',
   templateUrl: 'login-form.component.html'
 })
 export class LoginFormComponent {

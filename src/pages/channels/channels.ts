@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ChannelPage page.
+ * Generated class for the ChannelsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-channel',
-  templateUrl: 'channel.html',
+  selector: 'page-channels',
+  templateUrl: 'channels.html',
 })
-export class ChannelPage {
+export class ChannelsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChannelPage');
+    console.log('ionViewDidLoad ChannelsPage');
   }
 
 }

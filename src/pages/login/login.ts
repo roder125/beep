@@ -17,8 +17,4 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
-
-  navigateToPage(pageName: string){
-    pageName === "InboxPage" ? this.navCtrl.setRoot(pageName) : this.navCtrl.push(pageName);
-  }
 }

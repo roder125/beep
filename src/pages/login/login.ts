@@ -17,4 +17,5 @@ export class LoginPage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
+
 }

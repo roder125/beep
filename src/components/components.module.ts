@@ -1,14 +1,13 @@
-import { NgModule } from "@angular/core/src/metadata/ng_module";
-import { IonicModule } from "ionic-angular/module";
-import { LoginFormComponent } from './login-form/login-form.component';
-
-
+import { IonicModule } from 'ionic-angular/module';
+import { NgModule } from '@angular/core';
+import { LoginFormComponent } from './login-form/login-form';
+import { RegisterFormComponent } from './register-form/register-form';
 
 @NgModule({
-    declarations: [LoginFormComponent],
-    imports: [IonicModule],
-    exports: [LoginFormComponent]
+	declarations: [LoginFormComponent,
+    RegisterFormComponent],
+	imports: [],
+	exports: [LoginFormComponent,
+    RegisterFormComponent]
 })
-export class ComponentsModule{
-    
-}
+export class ComponentsModule {}

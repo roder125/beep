@@ -1,12 +1,8 @@
+import { LoginResponse } from './../../models/login/login-response.interface';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,7 +11,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams, private toast: ToastController) {
   }
 
+  login(event: LoginResponse){
+    if(!event.error){
+      this.toast.create({
+        message: `Welcome to Beep, ${event.result.email}`,
+        duration: 3000
+      }).present();
+      this.navCtrl.setRoot("ProfilePage");
+    }
+    else{
+      this.toast.create({
+        message: event.error.message,
+        duration: 3000
+      }).present();
+    }
+  }
 }

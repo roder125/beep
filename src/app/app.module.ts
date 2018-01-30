@@ -7,6 +7,8 @@ import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG } from './app.firebase.config';
 
 import { MyApp } from './app.component';
+import { AuthService } from '../providers/auth/auth.service';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { MyApp } from './app.component';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(FIREBASE_CONFIG)
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -25,6 +28,7 @@ import { MyApp } from './app.component';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthService
   ]
 })
 export class AppModule {}

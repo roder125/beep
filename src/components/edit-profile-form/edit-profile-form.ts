@@ -3,7 +3,7 @@ import { AuthService } from './../../providers/auth/auth.service';
 import { Subscription } from 'rxjs/Subscription';
 import { DataService } from './../../providers/data/data.service';
 import { Profile } from './../../models/profile/profile.interface';
-import { Component, OnDestroy, EventEmitter } from '@angular/core';
+import { Component, OnDestroy, EventEmitter, Input } from '@angular/core';
 import { Output } from '@angular/core';
 
 
@@ -18,7 +18,7 @@ export class EditProfileFormComponent implements OnDestroy {
 
   @Output() saveProfileResult: EventEmitter<Boolean>;
 
-  profile = {} as Profile;
+  @Input() profile: Profile;
 
   constructor(private data: DataService, private auth: AuthService) {
 

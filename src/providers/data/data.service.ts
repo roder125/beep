@@ -13,9 +13,14 @@ export class DataService {
  
   }
 
+  searchUser(firstName: string){
+    const query = this.database.list('/profiles/', query => 
+    query.orderByChild('firstName').equalTo(firstName));
+    return query.valueChanges().take(1);
+  }
+
   getProfile(user: User){
     this.profileObject = this.database.object(`/profiles/${user.uid}`);
-
     return this.profileObject;
   }
 

@@ -19,7 +19,11 @@ export class InboxPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InboxPage');
+    
+  }
+
+  navigateToSearchUserPage(){
+    this.navCtrl.push("SearchUserPage");
   }
 
 }

@@ -1,22 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { DataService } from '../../providers/data/data.service';
+import { AuthService } from '../../providers/auth/auth.service';
+import { User } from 'firebase/app';
+import { Profile } from '../../models/profile/profile.interface';
+import { LoadingController, Loading } from 'ionic-angular';
 
-/**
- * Generated class for the ProfileViewComponent component.
- *
- * See https://angular.io/api/core/Component for more info on Angular
- * Components.
- */
 @Component({
   selector: 'profile-view',
   templateUrl: 'profile-view.html'
 })
-export class ProfileViewComponent {
+export class ProfileViewComponent implements OnInit{
 
-  text: string;
+  userProfile: Profile;
 
-  constructor() {
-    console.log('Hello ProfileViewComponent Component');
-    this.text = 'Hello World';
+  loader: Loading;
+
+  constructor(private loading: LoadingController,private data: DataService, private auth: AuthService) {
+    this.loader = this.loading.create({
+      content: "Loading profile..."
+    });
+  }
+
+  ngOnInit(){
+    this.loader.present();
+    this.auth.getAuthenticatedUser().subscribe((user: User) => {
+      this.data.getProfile(user).valueChanges().subscribe((profile) => {
+        this.userProfile = <Profile>profile;
+        this.loader.dismiss();
+      })
+    })
   }
 
 }
